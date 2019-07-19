@@ -46,4 +46,13 @@ cityLocation.addEventListener('submit',e=>{
     updateCity(city)
     .then(data=>/*console.log(data)*/ addImage(data))
     .catch(err=>console.log(err));
-})
+
+    localStorage.setItem('city',city);
+});
+
+if(localStorage.getItem('city')){
+    updateCity(localStorage.getItem('city'))
+    .then(data=>addImage(data))
+    .catch(err=>console.log(err));
+}
+
